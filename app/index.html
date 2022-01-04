@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="game.css">
+    <style>
+        #tab-content div {
+            display: none;
+        }
+
+        #tab-content div.is-active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <p class="navbar-item" width="112" height="28" id="title-brand">Pictionary</p>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+    <div class='container has-text-centered'>
+        <div class='columns is-mobile is-centered' style="margin-top: 80px;">
+            <div class='column is-8'>
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Pictionary
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="tabs is-centered" id="tabs">
+                            <ul>
+                                <li class="is-active" data-tab="1"><a>Join Room</a></li>
+                                <li data-tab="2"><a>Create Room</a></li>
+                            </ul>
+                        </div>
+                        <div id="tab-content">
+                            <div class="is-active" data-content="1">
+                                <input id="usernamex" class="input" type="text" placeholder="Enter Name" required>
+                                <input id="roomid" class="input" type="text" placeholder="Enter Room ID" required style="margin-top: 15px;">
+                                <button class="button is-primary" style="margin-top: 20px;" id="joinbtn">Join</button>
+                            </div>
+                            <div data-content="2">
+                                <input id="usernamey" class="input" type="text" placeholder="Enter Name" required>
+                                <button class="button is-primary" id="createbtn">Create</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
