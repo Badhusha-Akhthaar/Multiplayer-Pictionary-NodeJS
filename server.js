@@ -25,7 +25,10 @@ io.on("connection", (socket) => {
     }
   });
   socket.on("init-vectors", (roomID, callback) => {
-    callback(_allRooms[roomID].vectors);
+    if(_allRooms != null || _allRooms != undefined || _allRooms[roomID] != null || _allRooms[roomID] != undefined ){
+      callback(_allRooms[roomID].vectors);
+    }
+    
   });
   socket.on("createroom", async (roomID, username) => {
     if (_allRooms[roomID] != undefined || _allRooms[roomID] != null) {
