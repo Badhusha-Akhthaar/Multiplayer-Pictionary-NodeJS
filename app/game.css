@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Ubuntu:wght@500;700&family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
 #title-brand{
   font-family: 'Unica One', cursive;
   font-weight: bolder;
+  font-size: 24px;
+}
+#dev-name{
+  font-family: 'Island Moments', cursive;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #292929;
   font-size: 24px;
 }
 .color-bar {
@@ -12,6 +20,14 @@
   padding: 0;
   z-index: 99;
   border-radius: 10px 0 0 10px;
+}
+
+.developer-bar {
+  position: fixed;
+  bottom: 3%;
+  right: 20px;
+  padding: 0;
+  z-index: 99;
 }
 
 .color-bar ul {

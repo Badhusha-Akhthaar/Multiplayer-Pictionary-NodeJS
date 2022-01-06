@@ -21,11 +21,16 @@ var socket = io();
 socket.on("connect", () => {
   switch (mode) {
     case "JOIN":
-      socket.emit("joinroom", roomID, username);
+      socket.emit("joinroom", roomID, username,(response)=>{
+        if(response){
+          alert("User already existing");
+          window.location.href = "/";
+        }
+      });
       break;
     case "CREATE":
       socket.emit("createroom", roomID, username);
-      sessionStorage.setItem(username,"isDrawing");
+      sessionStorage.setItem(username, "isDrawing");
       break;
   }
 });
@@ -34,6 +39,24 @@ socket.on("existingroom", () => {
   window.location.href = "/";
 });
 
-socket.on("path-received",(path)=>{
-    _path = path;
-})
+socket.on("path-received", (path) => {
+  _path = path;
+});
+
+socket.on("notify-others", (username) => {
+  bulmaToast.toast({
+    message: `${username} joined this room`,
+    type: "is-success",
+    dismissible: true,
+    closeOnClick: true,
+  });
+});
+
+socket.on("left-room", (username) => {
+  bulmaToast.toast({
+    message: `${username} left this room`,
+    type: "is-danger",
+    dismissible: true,
+    closeOnClick: true,
+  });
+});

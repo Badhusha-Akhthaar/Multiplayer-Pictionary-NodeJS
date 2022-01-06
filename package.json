@@ -10,6 +10,7 @@
   "author": "Badhusha",
   "license": "ISC",
   "dependencies": {
+    "bulma-toast": "^2.4.1",
     "express": "^4.17.2",
     "node-dto": "^1.1.0",
     "socket.io": "^4.4.0"
